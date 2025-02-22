@@ -1,4 +1,5 @@
-# README: TestRestWebApi.csproj
+# README: TestRestWebApi.csproj 
+### [Source Code](https://github.com/hraverkar/Encrypt_Decrypt_PasswordNetCore.git)
 
 # Docker and Kubernetes Deployment
 For Docker and Kubernetes deployment, I have followed this guide:
@@ -49,7 +50,7 @@ TestRestWebApi/
 ### Steps
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourrepo/TestRestWebApi.git
+   git clone https://github.com/hraverkar/Encrypt_Decrypt_PasswordNetCore.git
    ```
 2. Navigate to the project directory:
    ```sh
