@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-rest-web-api
+  labels:
+    app: test-rest-web-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-rest-web-api
+  template:
+    metadata:
+      labels:
+        app: test-rest-web-api
+    spec:
+      containers:
+      - name: test-rest-web-api
+        image: hraverkar/testrestwebapi_dockercode:v1.0.0
+        ports:
+        - containerPort: 8080  # Ensure this matches your app's exposed port
+        resources:   # Optional but recommended
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+        readinessProbe:   # Optional but ensures app is ready before serving traffic
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:   # Ensures the container is still alive
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 20
